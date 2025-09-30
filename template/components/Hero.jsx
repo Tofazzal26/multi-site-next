@@ -1,3 +1,3 @@
-export default function Hero() {
-  return <h1>[[ Quick | Fast | Speedy ]] delivery service in dhaka.</h1>;
+export default function Hero({ headline }) {
+  return <h1>{headline}</h1>;
 }

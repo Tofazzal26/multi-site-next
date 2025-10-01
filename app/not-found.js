@@ -1,4 +1,3 @@
-// app/not-found.js
 export default function NotFound() {
   return (
     <div style={{ textAlign: "center", padding: "50px" }}>

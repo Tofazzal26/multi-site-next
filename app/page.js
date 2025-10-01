@@ -29,30 +29,40 @@ export default function Home() {
 
   return (
     <div>
-      <div
-        style={{ maxWidth: 900, margin: "30px auto", fontFamily: "system-ui" }}
-      >
-        <h1>Multi-site Generator</h1>
-        <div style={{ margin: "16px 0" }}>
-          <button onClick={onGenerate} disabled={busy}>
-            {busy ? "Building..." : "Generate Sites"}
-          </button>
+      <div className="bg-blue-300">
+        <h1 className="text-lg container mx-auto py-4">Multi-site Generator</h1>
+      </div>
+      <div>
+        <div>
+          <div className="my-10 container mx-auto">
+            <button
+              onClick={onGenerate}
+              disabled={busy}
+              className="bg-red-300 px-4 py-2 rounded-md "
+            >
+              {busy ? "Building..." : "Generate Sites"}
+            </button>
+          </div>
+
+          <div className="bg-green-300 py-4">
+            <h3 className="container mx-auto text-lg">All Sites</h3>
+          </div>
+          <ul className="container mx-auto my-10 space-y-6">
+            {sites.map((s) => (
+              <li key={s.domain}>
+                <strong>{s.domain}</strong> — {s.title} — {s.phone}
+                <br />
+                <small>{s.address}</small>
+              </li>
+            ))}
+          </ul>
+
+          <div className="bg-amber-300 py-4">
+            <p className="container mx-auto text-lg">
+              After build: <code>./build/&lt;domain&gt;/</code>
+            </p>
+          </div>
         </div>
-
-        <h3>Sites</h3>
-        <ul>
-          {sites.map((s) => (
-            <li key={s.domain}>
-              <strong>{s.domain}</strong> — {s.title} — {s.phone}
-              <br />
-              <small>{s.address}</small>
-            </li>
-          ))}
-        </ul>
-
-        <p style={{ marginTop: 20 }}>
-          After build: <code>./build/&lt;domain&gt;/</code>
-        </p>
       </div>
     </div>
   );
